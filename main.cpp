@@ -1,5 +1,6 @@
 #include <iostream>
 #include "SkipList.h"
+#include <string>
 using namespace std;
 int main(int argc, char** argv) {
     SkipList *letterBank=new SkipList;
@@ -10,5 +11,5 @@ int main(int argc, char** argv) {
         Value currVal=to_string(currLetter);
         letterBank->insert(currKey, currVal);
     }  
-    
+
 }
