@@ -15,7 +15,7 @@ int main(int argc, char** argv) {
     menu *MainMenu=new menu(string("Main Menu"), nullptr);
     menu *NumOfPlayers=new menu(string("Number of Players"), MainMenu);
     menu *PlayerSelect=new menu(string("Player Select"), NumOfPlayers);
-    menu *Game=new menu(string("Game"), NumOfPlayers);
+    menu *Game=new menu(string("Game"), PlayerSelect);
     menu *WordBankMenu=new menu(string("Word Bank Modification"), MainMenu);
     MainMenu->insert(NumOfPlayers);
     PlayerSelect->insert(Game);
