@@ -18,14 +18,22 @@ class menu{
     //print all the menus this one connects to, i.e. the menus the user can access from here
     void print(){
         int size=options.size();
-        cout<<". return to "<<parent->getName();
-        for(int i=0; i<size; i++){
-            cout<<i+2<<". "<<options[i]->getName()<<endl;
+        int i=0;
+        if (parent!=nullptr){
+            i=1;
+            cout<<"1. return to "<<parent->getName();
+        }
+ 
+        for(i; i<size; i++){
+            cout<<i+1<<". "<<options[i]->getName()<<endl;
         }
     }
     menu* nextMenu(int input){
+        if(input==1){
+            return parent;
+        }
         try{
-            return(options[input]);
+            return(options.at(input));
         }
         catch(...){
             return this;
