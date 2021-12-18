@@ -23,6 +23,14 @@ class menu{
             cout<<i+2<<". "<<options[i]->getName()<<endl;
         }
     }
+    menu* nextMenu(int input){
+        try{
+            return(options[input]);
+        }
+        catch(...){
+            return this;
+        }
+    }
     menu(string str, menu *parentIn):name(str){
         parent=parentIn;
     }
