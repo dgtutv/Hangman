@@ -6,7 +6,7 @@ class menu{
     private:
     //we will keep track of which menus this one can access via a vector and a parent pointer
     vector<menu*> options;
-    string name;
+    string name="";
     menu* parent;
     public:
     string getName(){
@@ -31,7 +31,8 @@ class menu{
             return this;
         }
     }
-    menu(string str, menu *parentIn):name(str){
+    menu(string str, menu *parentIn){
         parent=parentIn;
+        name=str;
     }
 };

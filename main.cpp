@@ -12,18 +12,19 @@ int main(int argc, char** argv) {
         Value currVal=to_string(currLetter);
         letterBank->insert(currKey, currVal);
     }
-    menu *MainMenu=new menu("Main Menu", nullptr);
-    menu *NumOfPlayers=new menu("Number of Players", MainMenu);
-    menu *PlayerSelect=new menu("Player Select", NumOfPlayers);
-    menu *Game=new menu("Game", NumOfPlayers);
-    menu *WordBankMenu=new menu("Word Bank Modification", MainMenu);
+    menu *MainMenu=new menu(string("Main Menu"), nullptr);
+    menu *NumOfPlayers=new menu(string("Number of Players"), MainMenu);
+    menu *PlayerSelect=new menu(string("Player Select"), NumOfPlayers);
+    menu *Game=new menu(string("Game"), NumOfPlayers);
+    menu *WordBankMenu=new menu(string("Word Bank Modification"), MainMenu);
     MainMenu->insert(NumOfPlayers);
     NumOfPlayers->insert(PlayerSelect);
     PlayerSelect->insert(Game);
+    Game->insert(nullptr);
     MainMenu->insert(WordBankMenu);
     menu *thisMenu= MainMenu;
     int input;
-    while(true){
+    while(thisMenu!=nullptr){
         thisMenu->print();
         cin>>input;
         thisMenu=thisMenu->nextMenu(input);
