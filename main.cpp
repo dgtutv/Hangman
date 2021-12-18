@@ -18,15 +18,22 @@ int main(int argc, char** argv) {
     menu *Game=new menu(string("Game"), NumOfPlayers);
     menu *WordBankMenu=new menu(string("Word Bank Modification"), MainMenu);
     MainMenu->insert(NumOfPlayers);
-    NumOfPlayers->insert(PlayerSelect);
     PlayerSelect->insert(Game);
+    NumOfPlayers->insert(PlayerSelect);
     Game->insert(nullptr);
     MainMenu->insert(WordBankMenu);
     menu *thisMenu= MainMenu;
     int input;
     while(thisMenu!=nullptr){
         thisMenu->print();
+        cout<<"input: ";
         cin>>input;
+        if(input<0){
+            return(0);
+        }
+        cout<<endl;
+        cout<<endl;
         thisMenu=thisMenu->nextMenu(input);
+        cout<<thisMenu->getName()<<endl;
     }
 }

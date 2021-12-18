@@ -19,17 +19,16 @@ class menu{
     void print(){
         int size=options.size();
         int i=0;
-        if (parent!=nullptr){
-            i=1;
-            cout<<"1. return to "<<parent->getName();
+        if(parent!=nullptr){
+            cout<<i<<". "<<parent->getName()<<endl;
+            i++;
         }
- 
         for(i; i<size; i++){
-            cout<<i+1<<". "<<options[i]->getName()<<endl;
+            cout<<i<<". "<<options[i]->getName()<<endl;
         }
     }
     menu* nextMenu(int input){
-        if(input==1){
+        if(input==0&&parent!=nullptr){
             return parent;
         }
         try{
